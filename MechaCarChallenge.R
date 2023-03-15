@@ -44,4 +44,14 @@ lot_summary <- as.data.frame(lot_summary_tibble)
 #View lot_summary
 View(lot_summary)
 
+#write an RScript using the t.test() function to determine if the PSI across all manufacturing lots 
+#is statistically different from the population mean of 1,500 pounds per square inch
+t.test(Suspension_Coil$PSI, mu=1500, alternative="two.sided", conf.level = 0.95)
 
+#Write three more RScripts using the t.test() function and its subset() argument to determine 
+#if the PSI for each manufacturing lot is statistically different from the population mean of 1,500 pounds per square inch.
+t.test(subset(Suspension_Coil$PSI,Suspension_Coil$Manufacturing_Lot == 'Lot1'), mu=1500, alternative="two.sided", conf.level = 0.95)
+
+t.test(subset(Suspension_Coil$PSI,Suspension_Coil$Manufacturing_Lot == 'Lot2'), mu=1500, alternative="two.sided", conf.level = 0.95)
+
+t.test(subset(Suspension_Coil$PSI,Suspension_Coil$Manufacturing_Lot == 'Lot3'), mu=1500, alternative="two.sided", conf.level = 0.95)
